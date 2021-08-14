@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int T;
+    cin>>T;
+
+    while(T--){
+
+        int n, cnt=0;
+        cin>>n;
+        int limit = sqrt(2*n);
+
+        for(int i=1;i<=limit;i=i+2){
+
+            double a, b, c;
+            a = (double)i;
+            b = (a*a - 1)/2;
+            c = 1+b;
+
+            if(c==(int)c && b==(int)b && c!=0.0 && b!=0.0)
+                cnt++;
+
+        }
+        cout<<cnt<<endl;
+    }
+
+
+    return 0;
+}
+
