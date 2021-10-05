@@ -16,13 +16,13 @@ int g(string &A, string &B) {
         cout<<"pos[i][d] = "<<pos[i][d]<<" i = "<<i<<" d = "<<d<<endl;
     }
     
-    /*for( int i = 0; i<pos.size(); i++ ) {
+    /for( int i = 0; i<pos.size(); i++ ) {
         for(int j=0; j<26; j++){
             cout<<pos[i][j]<<endl;
         }
         cout<<endl;
     }
-    cout << endl;    */
+    cout << endl; 
 
     int cur = 0, cnt = 1, i = 0;
     while (i < B.size()) {

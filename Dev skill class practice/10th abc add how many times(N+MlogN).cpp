@@ -1,17 +1,4 @@
-
-/*
-Given string A and B of length N and M,
-you can concate string A together for x times and get the string B
-as a subsequence of the concatenated string. Minimize x and return it's value.
-If there is no solution, then return -1.
-example:
-A: abcabd
-B: abdcbaacd
-if you concate A 4 times, it becomes (ab)cab(d)ab(c)a(b)d(a)bc(a)bdab(c)ab(d)
-*/
-
 #include <bits/stdc++.h>
-
 using namespace std;
 
 int f(string &A, string &B) {
@@ -49,10 +36,8 @@ int f(string &A, string &B) {
         }
         //getchar();
     }
-
     return cnt;
 }
-
 
 int main() {
     string B = "abfdcbaacd";
