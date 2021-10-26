@@ -24,6 +24,7 @@ int main(){
     else cnt3 = 1;
     
     for(int i=0, j=0; i<52; i++, j++){
+        //cout<<"cnt = "<<cnt[i]<<endl;
         if(cnt[i] == cnt2[j]){}
         else{
             cnt3 = 1;
