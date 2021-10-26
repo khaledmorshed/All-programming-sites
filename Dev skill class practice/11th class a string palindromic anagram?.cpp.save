@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    string str;
+    cin>>str;
+    int cnt[26], cnt2 = 0, cnt3 = 0;
+    
+    for(int i=0; i<str.length(); i++){
+        cnt[str[i] - 'a']++;
+    }
+    
+    cout<<"cnt = "<<cnt[0]<<endl;
+    for(int i=0; i<26; i++){
+        cout<<"value = "<<cnt[i]<<endl;
+        if(cnt[i] == 0) 
+        if(cnt[i] % 2 == 1){
+            if(cnt2 == 1){
+              cnt2 = 2;
+              break;
+            } 
+            else cnt2 = 1;
+        } 
+        else{
+            cnt3 = 3;
+        } 
+    }
+    
+    if(cnt2 == 2 && (cnt3 == 0 || cnt3 == 3)) cout<<"Not palindromic anagram"<<endl;
+    else cout<<"Palindromic anagram"<<endl;
+    
+}
