@@ -17,14 +17,14 @@ int main()
         {
             if(s[j] == s[m])
             {
-                cout<<"outside if = "<<s[j]<<" "<<s[m]<<endl;
+                //cout<<"outside if = "<<s[j]<<" "<<s[m]<<endl;
                 int subStringlen = m - j;
-                cout<<"subStirnLen = "<<subStringlen<<endl;
+                //cout<<"subStirnLen = "<<subStringlen<<endl;
                 for(int k = j+1, l=m-1; k<=l; k++, l--)
                 {
                     if(s[k] == s[l])
                     {
-                        cout<<"Inside if = "<<s[k]<<" "<<s[l]<<endl;
+                        //cout<<"Inside if = "<<s[k]<<" "<<s[l]<<endl;
                         if(k == l)
                         {
                             if(subStringlen > stringLen)
@@ -45,7 +45,7 @@ int main()
                         }
                     }
                     else{
-                       cout<<"Inside else = "<<s[k]<<" "<<s[l]<<endl;
+                       //cout<<"Inside else = "<<s[k]<<" "<<s[l]<<endl;
                        break;
                     } 
 
@@ -53,7 +53,7 @@ int main()
             }
             else
             {
-                cout<<"outside esle = "<<s[j]<<" "<<s[m]<<endl;
+                //cout<<"outside esle = "<<s[j]<<" "<<s[m]<<endl;
             }
         }
     }
