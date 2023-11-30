@@ -44,6 +44,7 @@ int f(string &A, string &B) {
 }
 
 int g(string &A, string &B) {
+
     /*
         26(N+M)
         For each character in string A, we will store the next occurance of all characters from 'a' to 'z'.
@@ -51,10 +52,29 @@ int g(string &A, string &B) {
     */
 
     vector<vector<int>> pos(A.size()+1, vector<int>(26, A.size()));
+
+//     for(int i = 0; i < A.size()+1; i++)
+//    {
+//        for(int j = 0; j < 26; j++)
+//        {
+//            cout << pos[i][j] << " ";
+//        }
+//        cout<< endl;
+//    }
+
     for (int i = A.size()-1; i >= 0; i--) {
         pos[i] = pos[i+1];
         int d = A[i]-'a';
+        cout<<"i = "<<i<<", d = "<<d<<endl;
         pos[i][d] = i;
+    }
+
+
+    for(int i=0; i<=A.size(); i++){
+        for(int j=0; j<26; j++){
+            cout<<pos[i][j]<<" ";
+        }
+        cout<<endl;
     }
 
     int cur = 0, cnt = 1, i = 0;
@@ -75,10 +95,28 @@ int g(string &A, string &B) {
 }
 
 int main() {
-    string A = "abcabd";
-    string B = "abdcbaacd";
+    string A = "abcabdm";
+    string B = "abdcbaacdm";
     cout << f(A, B) << endl;
     cout << g(A, B) << endl;
 
     return 0;
+}
+
+int main1()
+{
+	int gfg[] = { 5, 5, 5, 6, 6, 6, 7, 7 };
+
+	vector<int> v(gfg, gfg + 8); // 5 5 5 6 6 6 7 7
+
+	//vector<int>::iterator lower, upper;
+	int lower = lower_bound(v.begin(), v.end(), 6) - v.begin();
+	int upper = upper_bound(v.begin(), v.end(), 6)- v.begin();
+
+	cout << "lower_bound for 6 at index "
+		<< lower << '\n';
+	cout << "upper_bound for 6 at index "
+		<< upper << '\n';
+
+	return 0;
 }
