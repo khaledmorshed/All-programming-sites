@@ -6,7 +6,9 @@ int n = 3;
 
 bool f(int t, int f, vector<vector<int>> v){
 
-    int cnt = 0;
+    int cnt = 0, notUse = 0;
+    //juust tes
+
     for(int i=0; i<26; i++){
         int value;
         if(v[i][t])
