@@ -1,19 +1,87 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cstdio>
+
+#define ELEMENTS 30002
+
 using namespace std;
 
-int main(){
+int parent[ELEMENTS];//points to its parent or its representative of its set
+int rank1[ELEMENTS];
 
-    //string A = "abcabd";
-    vector<vector<int>>pos(3, vector<int>(3,14));
-    
-    cout<<"size = "<<pos.size()<<endl;
-    
-    for( int i = 0; i<pos.size(); i++ ) {
-        for(int j=0; j<3; j++){
-            cout<<pos[i][j]<<endl;
-        }
-        cout<<endl;
+//for faster implementation and less function calls we don't call make set
+//n times we only call make sets 1 time.
+
+void make_sets(int number_of_elements)
+{
+    int i;
+    for(i = 0; i < number_of_elements; i++)
+    {
+        parent[i] = i;
+        rank1[i] = 1;
     }
-    cout << endl;
-    
+}
+
+int find_set(int element)
+{
+    if(element != parent[element])
+        parent[element] = find_set(parent[element]);
+    return parent[element];
+}
+
+void set_union(int x, int y)//where x and y are elements of different sets
+{
+    int rx, ry; //roots or representatives of x and y sets
+    rx = find_set(x);
+    ry = find_set(y);
+    if(rx == ry) // it means the elements already are in the same set
+        return;
+    if(rank1[rx] > rank1[ry])
+    {
+        rank1[rx] += rank1[ry];
+        parent[ry] = rx;
+    }
+    else
+    {
+        rank1[ry] += rank1[rx];
+        parent[rx] = ry;
+    }
+}
+
+int main()
+{
+int persons, queries, gSize, ele, person;
+int zeroParent, tot;
+while(scanf("%d %d",&persons, &queries))
+{
+    tot = 0;
+    if(!persons && !queries)
+       break;
+    make_sets(persons);
+    for(int s=1; s<=queries; s++)
+    {
+        scanf("%d", &gSize);
+        for(int x=1; x<=gSize; x++)
+        {
+            scanf("%d", &person);
+            if(x==1){
+
+				ele = person;
+				//cout<<"ele1 = "<<ele<<endl;
+            }
+
+            else{
+					//cout<<"ele = "<<ele<<" per = "<<person<<endl;
+                    set_union(ele, person);
+                    //find_set(ele);find_set(person);
+                }
+
+        }
+    }
+    zeroParent =  find_set(0);
+    for(int j=0; j<persons; j++)
+        if(find_set(j) == zeroParent)
+           tot++;
+    printf("%d\n", tot);
+}
+return 0;
 }

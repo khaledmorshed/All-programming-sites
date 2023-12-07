@@ -1,19 +1,41 @@
+// C++ program for the above approach
 #include <bits/stdc++.h>
 using namespace std;
 
-int main(){
+// Comparator Function
+bool myCmp(string s1, string s2)
+{
 
-    //string A = "abcabd";
-    vector<vector<int>>pos(3, vector<int>(3,14));
-    
-    cout<<"size = "<<pos.size()<<endl;
-    
-    for( int i = 0; i<pos.size(); i++ ) {
-        for(int j=0; j<3; j++){
-            cout<<pos[i][j]<<endl;
-        }
-        cout<<endl;
-    }
-    cout << endl;
-    
+	// If size of numeric strings
+	// are same the put lowest value
+	// first
+	if (s1.size() == s2.size()) {
+		return s1 < s2;
+	}
+
+	// If size is not same put the
+	// numeric string with less
+	// number of digits first
+	else {
+		return s1.size() < s2.size();
+	}
+}
+
+// Driver Code
+int main()
+{
+	vector<string> v
+		= { "ac", "c", "dbc", "a"};
+
+	// Calling sort function with
+	// custom comparator
+	sort(v.begin(), v.end(), myCmp);
+
+	// Print the vector values after
+	// sorting
+	for (auto it : v) {
+		cout << it << " ";
+	}
+
+	cout << "\n";
 }

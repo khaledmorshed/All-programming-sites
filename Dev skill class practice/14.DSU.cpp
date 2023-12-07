@@ -14,7 +14,8 @@ void unite(int u, int v)
 {
     u = getpar(u);
     v = getpar(v);
-
+    //cout<<"u = "<<u<<"  v = "<<v<<endl;
+    cout<<"()u = "<<u<<" par = "<<par[u]<<",  v = "<<v<<" par = "<<par[v]<<endl;
     if(u == v) return;
 
     /*if(sz[u] < sz[v]) swap(u,v);
@@ -24,12 +25,15 @@ void unite(int u, int v)
     if(sz[u] >= sz[v])
     {
         sz[u] += sz[v];
+        cout<<"sz1["<<u<<"]"<<" = "<<sz[u]<<endl;
         par[v] = u;
     }
     else{
         sz[v] += sz[u];
+        cout<<"sz2["<<v<<"]"<<" = "<<sz[v]<<endl;
         par[u] = v;
     }
+    cout<<"  u = "<<u<<" par = "<<par[u]<<",  v = "<<v<<" par = "<<par[v]<<endl;
 }
 
 bool isconnection(int u, int v)

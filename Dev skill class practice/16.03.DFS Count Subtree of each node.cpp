@@ -19,12 +19,15 @@ int dfs(int u){
             //cout<<"V = "<<v<<endl;
             dfs(v);
             //getchar();
+            //cout<<"sub["<<u<<"] = "<<sub[u]<<" sub["<<v<<"] = "<<sub[v]<<endl;
             sub[u] = sub[u] + sub[v];
-            // cout<<"U = "<<u<<" V = "<<v<<" sub = "<<sub[u]<<endl;
+            cout<<"sub["<<u<<"] = "<<sub[u]<<" sub["<<v<<"] = "<<sub[v]<<endl<<endl;
 
         }
     }
-    /*20 12
+    return 0;
+    /*
+20 12
 1 2 1 3 2 4 2 5 3 6 3 7 3 15 3 20 20 11 20 12 13 14 13 16
     */
 }

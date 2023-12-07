@@ -334,7 +334,7 @@ int main()
 
             //cout<<"Case "<<t++<<": "<<bfs(node, ti)<<" nodes not reachable from node "<<node<<" with TTL = "<<ti<<endl;
             printf("Case %d: %d nodes not reachable from node %lld with TTL = %d.\n", t++, sum2, node, ti);
-            sum = 0;
+             sum = 0;
         }
     }
 

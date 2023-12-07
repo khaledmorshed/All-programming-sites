@@ -8,7 +8,6 @@ double dis[10];
 void f1(double a[], double b[], double t){
 
     //return {p1.xx+(p2.xx-p1.xx)*t, p1.yy+(p2.yy-p1.yy)*t};
-
     dis[0] = a[0] + (b[0] - a[0])*t;
     dis[1] = a[1] + (b[1] - a[1])*t;
     dis[2] = a[2] + (b[2] - a[2])*t;
@@ -27,14 +26,11 @@ void f2(double a[], double b[], double t){
     //cout<<"dis[3] = "<<dis[3]<<" dis[4] = "<<dis[4]<<" dis[5] = "<<dis[5]<<endl;
 }
 
-
 double distanc1(double p[]){
 
     //return sqrt(sqr(p1_2.xx-p.xx) + sqr(p1_2.yy-p.yy));
     //printf(" distance 1 = %.10f",sqrt(sqr(p[0] - dis[0]) + sqr(p[1] - dis[1]) + sqr(p[2] - dis[2])));
-
     return sqrt(sqr(p[0] - dis[0]) + sqr(p[1] - dis[1]) + sqr(p[2] - dis[2]));
-
 }
 
 double distanc2(double p[]){
@@ -59,7 +55,6 @@ int main(){
 
         int a1,a2,a3,b1,b2,b3,p1,p2,p3;
         cin>>a1>>a2>>a3>>b1>>b2>>b3>>p1>>p2>>p3;
-
 
         a[0] = a1;
         a[1] = a2;
@@ -94,7 +89,6 @@ int main(){
             //getchar();
 
         }
-
 
         //cout<<"Case "<<cas++<<": "<<distanc2(p)<<endl;
         printf("Case %d: %.10f\n",cas++,distanc2(p));

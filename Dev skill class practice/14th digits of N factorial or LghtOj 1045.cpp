@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+#define N 1000006+9
+
+using namespace std;
+
+vector<double> v(N);
+
+void nFactorialValue(){
+	v[0] = 0;
+	for(int i=1; i<=N; i++){
+		v[i] = v[i-1] + log10(i);
+	}
+}
+
+
+int main(){
+	nFactorialValue();
+	int T;
+	cin>>T;
+
+	for(int t=1; t<=T; t++){
+		int n, base;
+		cin>>n>>base;
+		int x = (v[n] / log10(base));
+		cout<<"Case "<<t<<": "<<x+1<<endl;
+	}
+}

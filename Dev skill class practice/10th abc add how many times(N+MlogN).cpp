@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 int f(string &A, string &B) {
@@ -12,38 +13,33 @@ int f(string &A, string &B) {
     for (int i = 0; i < A.size(); i++) {
         pos[A[i]-'a'].push_back(i);
     }
-    //cout<<"A..size = "<<A.size()<<endl;
+
     int cur = 0, cnt = 1, i = 0;
     while (i < B.size()) {
         int d = B[i]-'a';
-        //cout<<"B_ar = "<<d<<endl;
-        //auto it = lower_bound(pos[d].begin(), pos[d].end(), cur);
-        //cout<<"it = "<<*it<<endl;
+        //in is position
         int in = lower_bound(pos[d].begin(), pos[d].end(), cur) - pos[d].begin();
-        //cout<<"low_pos(in) = "<<in<<endl;
-        //cout<<"pos[d].size = "<<pos[d].size()<<endl;
-        //if(in > pos[d].size()) return -1;
+        cout<<"i = "<<i<<endl;
         if (in >= pos[d].size()) {
-                cout<<"Again cur = "<<cur<<endl;
             if (!cur) return -1;
             cur = 0;
             cnt++;
-            //cout<<"cnt = "<<cnt<<endl;
         } else {
             cur = pos[d][in]+1;
-            //cout<<"cur = "<<cur<<endl;
             i++;
         }
-        //getchar();
+        cout<<"d = "<<d<<" in = "<<in<<" cur = "<<cur<<" cnt = "<<cnt<<endl;
+        getchar();
     }
+
     return cnt;
 }
 
 int main() {
-    string B = "abfdcbaacd";
-    string A = "abcabd";
+    string A = "abcabb";
+    string B = "abcbaacbcd";
     cout << f(A, B) << endl;
+
 
     return 0;
 }
-

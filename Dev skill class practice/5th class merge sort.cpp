@@ -41,13 +41,14 @@ void mergesort(int st, int ed)
         A[p] = t[q];
 
     }
-    /*cout<<"array = ";
+    cout<<"array = ";
     for(int i=st; i<ed; i++) cout<<A[i]<<" ";
-    cout<<endl;*/
+    cout<<endl;
 }
 
 void merges(int st, int ed)
 {
+    cout<<" ha "<<endl;
     if(st == ed-1)
     {
         //cout<<st<<" st ed "<<ed<<" return "<<endl;
@@ -60,8 +61,10 @@ void merges(int st, int ed)
 
     //cout<<" merge1(st, md)  "<<" merge1( "<<st<<", "<<md<<")"<<endl;
     merges(st, md);
+    cout<<"I am here"<<endl;
     //cout<<" merge2(md, ed)  "<<" merge2( "<<md<<", "<<ed<<")"<<endl;
     merges(md, ed);
+    cout<<"I am here 2"<<endl;
     //cout<<" mergesort(st, ed)  "<<" mergesort( "<<st<<", "<<ed<<")"<<endl;
     mergesort(st, ed);
     //cout<<" ses "<<endl;
@@ -85,8 +88,8 @@ int main()
     //n = 9;
 
     for(int i=0; i<n; i++)
-    {   //A[i] = rand() % 20 + 1;
-        cin>>A[i];
+    {   A[i] = rand() % 20 + 1;
+        //cin>>A[i];
 
     }
     for(int i=0; i<n; i++) cout<<A[i]<<" ";

@@ -6,7 +6,7 @@ using namespace std;
 ll B = 31, M = 100000009+7;//big prime number
 ll power[100005];
 
-ll B2 = 31, M2 = 100000009+7;
+ll B2 = 29, M2 = 100000009+3;
 ll power2[100005];
 
 string text, pat;
@@ -47,7 +47,15 @@ ll calculatePatHash(){
     for(int i=0; i<pat.size(); i++){
         h = (h*B + pat[i]) % M;
     }
-    cout<<"pat = "<<h<<endl;
+    //cout<<"pat = "<<h<<endl;
+    return h;
+}
+ll calculatePatHash2(){
+    ll h = 0;
+    for(int i=0; i<pat.size(); i++){
+        h = (h*B2 + pat[i]) % M2;
+    }
+    //cout<<"pat = "<<h<<endl;
     return h;
 }
 
@@ -61,7 +69,7 @@ ll getHashValue(int i, int j){
     if(ans < 0){
       ans += M;
     }
-    cout<<"getvalue1 = "<<ans<<endl;
+    //cout<<"getvalue1 = "<<ans<<endl;
     return ans;
 }
 
@@ -75,7 +83,7 @@ ll getHashValue2(int i, int j){
     if(ans < 0){
       ans += M2;
     }
-    cout<<"getvalue2 = "<<ans<<endl;
+   // cout<<"getvalue2 = "<<ans<<endl;
     return ans;
 }
 
@@ -84,9 +92,10 @@ int cnt;
 void finder(){
     cnt = 0;
     ll patHashValue = calculatePatHash();
+    ll patHashValue2 = calculatePatHash2();
     int sz = pat.size();
     for(int i=0; i<text.size() - sz + 1; i++){
-        if(patHashValue == getHashValue(i, i+sz-1) && patHashValue == getHashValue2(i, i+sz-1)){
+        if(patHashValue == getHashValue(i, i+sz-1) && patHashValue2 == getHashValue2(i, i+sz-1)){
             cnt++;
             //return true;
         }

@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    char small, big;
+    small = getchar();
+	big = small - 32;
+    printf("%c\n", big); 
+    //cout<<big<<endl;
+	for(int i=33; i<=126; i++){
+		//printf("ASCII code for %c is %d\n", i,i);
+		//cout<<"ASCII code for "<<char(i)<<" is "<<i<<endl;
+	}
+	printf("%c%c%c%c%c%c\n",83,104,105,116,104,105);
+	cout<<char(83)<<char(104)<<char(105)<<char(116)<<char(104)<<char(105)<<endl;
+}

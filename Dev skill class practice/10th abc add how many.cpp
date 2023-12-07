@@ -41,3 +41,39 @@ int main()
 
     //cout<<"Added "<<cnt<<" times"<<endl;
 }
+
+/*
+//good coding instead of above
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    //a = abcbadc
+    //b = cab
+    string a, b;
+    cin>>a>>b;
+
+    int len1 = a.length();
+    int len2 = b.length();
+    int i = 0, j = 0;
+    int cnt=0;
+    bool check;
+    while(i<len1){
+        check = false;
+        for(int j=0; j<len2; j++){
+            if(a[i] == b[j]){
+                i++;
+                check = true;
+            }
+        }
+        if(check == false){
+            cout<<"not possible"<<endl;
+            break;
+        }
+        cnt++;
+    }
+    if(check)
+    cout<<cnt<<endl;
+}
+
+*/

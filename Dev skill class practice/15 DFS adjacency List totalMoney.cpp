@@ -1,5 +1,3 @@
-
-
 #include<bits/stdc++.h>
 #define LIM 1003
 using namespace std;
@@ -14,20 +12,24 @@ int dfs(int u){
     visit[u] = 1;
     k++;
     int ans = value[u];
+    cout<<"ans = "<<ans<<endl;
     for(int i=0; i<g[u].size(); i++){
         int v = g[u][i];
         if(!visit[v]){
             ans = ans + dfs(v);
         }
     }
+    cout<<"ans2 = "<<ans<<endl;
     return ans;
 }
 
-int main()
-{
+int main(){
     cin>>n>>m;
     g.resize(n+1);
-    for(int i=1; i<=n; i++) cin>>value[i];
+    for(int i=1; i<=n; i++){
+        //cin>>value[i];
+        value[i]=i;
+    }
 
     for(int i=0; i<m; i++)
     {
@@ -48,3 +50,17 @@ int main()
     }
 
 }
+/*
+12 10
+1 2
+2 3
+3 4
+5 6
+6 7
+7 8
+8 6
+9 10
+10 11
+11 12
+
+*/

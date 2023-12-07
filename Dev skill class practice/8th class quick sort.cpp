@@ -9,16 +9,39 @@ int rando(int a, int b)
     return rand() % sz + a;
 }
 
+/*
+10
+8 6 8 11 20 7 16 20 16 11
+
+*/
 int _partition(int st, int ed, int pv)
 {
     int i = st, j = ed-1;
+    for(int i=st; i<ed; i++){
+            cout<<A[i]<<" ";
+        }
+        cout<<endl;
     while(i < j)
     {
-        if(A[i] < pv) i++;
-        else if(A[j] >= pv) j--;
-        else swap(A[i++], A[j]);
+        if(A[i] < pv){
+            cout<<"ai = "<<A[i]<<" pv = "<<pv<<endl;
+            i++;
+        }
+        else if(A[j] >= pv){
+            cout<<"aj = "<<A[j]<<" pv = "<<pv<<endl;
+            j--;
+        }
+        else{
+            cout<<"ai = "<<A[i]<<" aj = "<<A[j]<<" pv = "<<pv<<endl;
+            swap(A[i++], A[j]);
+        }
+
         //for(int k=0; k<n; k++) cout<<"  "<<A[k]; cout<<endl;
     }
+    for(int i=st; i<ed; i++){
+            cout<<A[i]<<" ";
+        }
+        cout<<endl<<endl;
     //cout<<endl<<endl;
     return j;
 }
@@ -27,9 +50,9 @@ void quickSort(int st, int ed)
 {
     if(st+1 >= ed) return; // if(st >= ed-1) return;
 
-    int posi = rando(st, ed-1);// To find a random positon
+   // int posi = rando(st, ed-1);// To find a random positon
     //cout<<"random position =  "<<posi<<endl;
-    swap(A[posi], A[ed-1]);// now pivot will be in last position
+    //swap(A[posi], A[ed-1]);// now pivot will be in last position
 
     int pv = A[ed-1];// last value of array
     int parti = _partition(st, ed, pv);

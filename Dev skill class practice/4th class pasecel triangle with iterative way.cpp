@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+void pascel(int n){
+	vector<vector<int>> v;
+	v.resize(n,vector<int>(n));
+
+	//v[0].push_back(1);
+	//cout<<v[0][0]<<endl;
+	for(int line=0; line<n; line++){
+		for(int i=0; i<=line; i++){
+			if(line == i || i == 0) v[line][i] = 1;
+			else v[line][i] = v[line-1][i-1] + v[line-1][i];
+			cout<<v[line][i]<<" ";
+		}
+		cout<<endl;
+	}
+}
+
+int main(){
+	int n;
+	cin>>n;
+	pascel(n);
+}

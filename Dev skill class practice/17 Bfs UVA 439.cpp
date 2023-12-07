@@ -54,7 +54,7 @@ int main(){
         int sc = s1[1] - '0';
         int dr = s2[0] - 96;
         int dc = s2[1] - '0';
-
+        cout<<sr<<" "<<sc<<endl;
         bfs(sr, sc, dr, dc);
     }
         return 0;
