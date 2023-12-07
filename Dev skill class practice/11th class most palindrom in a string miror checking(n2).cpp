@@ -9,9 +9,8 @@ int mostPalindromic(){
 	for(int m=0; m<str.size(); m++){
 		for(int i=m-1, j=m+1; i>=0 && j<str.size(); i--, j++){
 			if(str[i] == str[j]){
-				int prevAns = ans;
 				ans = max(ans, j-i+1);
-				if(ans > prevAns){
+				if(ans == j-i+1){
 					startIndex = i;
 					endIndex = j;
 				}
@@ -20,9 +19,8 @@ int mostPalindromic(){
 		}
 		for(int i=m, j=m+1; i>=0 && j<str.size(); i--, j++){
 			if(str[i] == str[j]){
-				int prevAns = ans;
 				ans = max(ans, j-i+1);
-				if(ans > prevAns){
+				if(ans == j-i+1){
 					startIndex = i;
 					endIndex = j;
 				}
