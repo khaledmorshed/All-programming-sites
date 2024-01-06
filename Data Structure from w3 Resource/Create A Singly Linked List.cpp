@@ -12,14 +12,10 @@ struct Node{
 };
 
 Node* head = NULL;
-Node* Beftemp;
+Node* lastNode;
 
 void insertion(int value){
-
-
     Node* temp = new Node();
-
-
 
     temp->data = value;
     temp->next = NULL;
@@ -27,12 +23,12 @@ void insertion(int value){
     if(head == NULL){
 
         head = temp;
-        Beftemp = temp;
+        lastNode = temp;
         return;
     }
 
-    Beftemp ->next = temp;
-    Beftemp = temp;
+    lastNode ->next = temp;
+    lastNode = temp;
 
 }
 
